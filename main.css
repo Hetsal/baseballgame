@@ -1,0 +1,59 @@
+body {
+  display : flex;
+  justify-content: center;
+  align-items : center;
+  position: relative;
+}
+input {
+  position: absolute;
+  top : 250px;
+  width: 100px;
+  height: 60px;
+  font-size: 40px;
+  margin : auto;
+
+}
+
+span {
+  position: absolute;
+  top : 380px;  
+  font-size: 20px;
+  font-weight: 600;
+  margin: auto;
+}
+
+button {
+  position: absolute;
+  top : 330px;
+  width: 170px;
+  height: 40px;
+  font-size: 25px;
+  background-color: brown;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  
+}
+
+div.default{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size : 70px;
+  position: relative;
+}
+
+.startbtn{
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  top : 180px;
+  font-size: 30px;
+  background-color: brown;
+  color: white;
+  font-weight: 600;
+  border : none;
+  border-radius: 30px;
+}

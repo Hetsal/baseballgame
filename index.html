@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <script>
+    document.addEventListener('DOMContentLoaded',() => {
+      const startBtn = document.querySelector(".startbtn")
+      const inputNum = document.createElement('input','text')
+      const inputBtn = document.createElement('button')
+      const answer = document.createElement('span')
+      const newBtn = document.createElement('button')
+      let randomNum1 = ''
+      let randomNum2 = ''
+      let randomNum3 = ''
+      let randomNum = ''
+      let count = 0
+      startBtn.addEventListener('click',() => {
+        randomNum1 = String(Math.floor((Math.random())*10))
+        randomNum2 = String(Math.floor((Math.random())*10))
+        randomNum3 = String(Math.floor((Math.random())*10))
+        randomNum = randomNum1+randomNum2+randomNum3
+        console.log(randomNum)
+        document.body.appendChild(inputNum)
+        document.body.appendChild(inputBtn)
+        inputBtn.innerText = 'Enter'
+      })
+      inputBtn.addEventListener('click',() => {
+        
+        let inputVal = inputNum.value
+        let strike = 0
+        let ball = 0
+        if(inputVal.length >= 4 || inputVal.length < 3){
+          alert("세자리 숫자를 입력해주세요!")
+        }
+        if(inputVal === randomNum){
+          document.body.appendChild(answer)
+          answer.innerText = 'HomeRun!!'
+          document.body.appendChild(newBtn)
+          newBtn.innerText = 'Start Again!'
+        } else {
+        for (let i =0; i <inputVal.length ; i++){
+        if(inputVal[i] === randomNum[i]){
+          strike ++
+        }
+        for (let j = 0; j < randomNum.length; j++){
+          if(i !== j && inputVal[i] === randomNum[j]){
+            ball ++
+          }
+        }
+        document.body.appendChild(answer)
+      }
+      count++
+      if (count > 9){
+          alert ('You loose!') // 게임 종료로 바꿔야.
+          document.body.appendChild(newBtn)
+          newBtn.innerText = 'Start Again!'
+          answer.innerText = 'Press Start Again!'
+        }else if (count <=9) {
+          document.body.appendChild(answer)
+          answer.innerText = `${count}번째 시도 : ${strike}Strike ${ball} Ball `
+      }
+      }
+      })
+
+
+      newBtn.addEventListener('click',() => {
+        document.body.removeChild(answer)
+        inputNum.value = ''
+        document.body.removeChild(newBtn)
+        count = 0
+      })
+        })
+        
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="default">
+    <h1>Baseball Game</h1>
+    <input type="button" class="startbtn" value = "Start!"></input>
+  </div>
+</body>
+</html>
